@@ -90,33 +90,32 @@ int main()
 
 int insertSortedLL(LinkedList *ll, int item)
 {
-	int count = 0;  //현재 보고 있는 노드의 인덱스값
-	ListNode *cur; // ll 을 돌 변수
-	int insertNodeReturnValue = 0; //말그대로 insertNode에서 반환하는 값을 받아주는 변수
-	if (ll == NULL){return -1;}  //ll이 빈값인지 검사 로직, 리스트가 비었다면 return해서 함수를 끝냄.
-	cur = ll -> head; //위에서 ll이 빈값인지 검사 후, 리스트가 비었지 않았다면, cur에 ll포인터의 head 값을 넣어주게됨   +ps. (구조체 포인터 -> 구조체안에 있는 변수) 구조체안에 있는 변수를 가져오는 거임
+	int count = 0;
+	ListNode *cur;
+	int res = 0;
+	if(ll == NULL) {return -1;}
+	cur = ll->head;
 
-	cur = cur->item;
-	while (cur != NULL){                  //cur 가 널이 아닐때 반복
-		if(cur == item){   // cur의 item이 입력 받은 item과 같다면 return 하여 함수 끝내기
+	while(cur != NULL){
+		if(cur->item == item){
 			return -1;
-		}
-		else if(cur > item){ //cur의 item이 입력받은 item과 크다면 break, insertNode 호출, item 값을 입력, 입력이 됬다면 0 리턴하기에 0 리턴 받으면, count(인덱스위치값) 호출, -1 리턴됬을시에는 걍 return
+		}else if(cur->item > item){
 			break;
 		}
-		else if(cur < item){ //작다면 카운트 올리고 next 값 받아오기
-			cur->next;
+		else if(cur->item < item){
+			cur= cur->next;
 			count++;
 		}
+		
 	}
-	insertNodeReturnValue = insertNode(ll, count, item); 
-	if (insertNodeReturnValue == 0){
-		return count;
-	}else{
+	res = insertNode(ll, count, item);
+		if(res == 0){
+			return count;
+		}else{
 		return -1;
-	}
-	
+		}
 }
+
 
 ///////////////////////////////////////////////////////////////////////////////////
 

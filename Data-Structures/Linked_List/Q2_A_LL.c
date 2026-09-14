@@ -103,17 +103,16 @@ int main()
 
 void alternateMergeLinkedList(LinkedList *ll1, LinkedList *ll2)
 {
-	int llcount1 = ll1->size;
+	int llcount1 = ll1->size; //리스트들의 크기를 받기.
 	int llcount2 = ll2->size;
-	if (ll1 == NULL){return;}
-    ListNode *cur;
-	cur = ll1->head;
+	if (ll1 == NULL){return;}  //리스트가 없다면 리턴하기
+
 	/* add your code here */
-	for (int i = 0; i < llcount1; i++){
-		ListNode *l2 = ll2->head;
-		int l2val =  l2->item;
-		insertNode(ll1, i*2+1, l2val);
-		removeNode(ll2, 0);
+	for (int i = 0; i < llcount1; i++){ //리스트1을 기준으로 포문을 돌려야하기에 1을 넣어줌
+		ListNode *l2 = ll2->head;  //리스트2의 앞부분
+		int l2val =  l2->item;  //앞부분의 값을 받는다
+		insertNode(ll1, i*2+1, l2val);   //리스트1에 인덱스 [I*2+1]위치에 리스트2값을 넣어주고
+		removeNode(ll2, 0);  //리스트 남은 인덱스 앞부분을 빼줌
 
 	}
 }

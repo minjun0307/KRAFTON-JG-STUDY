@@ -103,6 +103,11 @@ int main()
 
 void alternateMergeLinkedList(LinkedList *ll1, LinkedList *ll2)
 {
+	/*TODO : 
+	1 : 연결리스트들의 크기를 할당
+	2 : 조건문 리스트가 있는지 확인해보기
+	3 : 반복문으로 리스트를 앞부분의 포인터,와 값을 받기
+	4 : 그것을 삽입, 후 제거*/ 
 	int llcount1 = ll1->size; //리스트들의 크기를 받기.
 	int llcount2 = ll2->size;
 	if (ll1 == NULL){return;}  //리스트가 없다면 리턴하기
